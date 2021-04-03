@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31112.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vtex.Challenge.Web", "Web\Vtex.Challenge.Web.csproj", "{1D5EAA0C-24F1-493F-BAED-3D9DC5731AA4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{31F3F9B9-3F49-4705-B8B2-AC8A5C8DE930}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{BF48A8BD-3DCA-4CAC-AC53-88BC2926BAD5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{69C01B1F-9DAA-4743-9D96-C7DAD2B788AA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{6A1C53A8-7392-4585-A3FC-8E6028B1BAC8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vtex.Challenge.Application", "Vtex.Challenge.Application\Vtex.Challenge.Application.csproj", "{28D604B2-BDBA-4EDE-A05C-6C7820A21BDB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vtex.Challenge.Database", "Vtex.Challenge.Database[\Vtex.Challenge.Database.csproj", "{1B790AB2-B834-4B31-BA42-0359EB7175B5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vtex.Challenge.Domain", "Vtex.Challenge.Domain\Vtex.Challenge.Domain.csproj", "{96268ECC-C806-47A8-B62F-186177AB4AB1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1D5EAA0C-24F1-493F-BAED-3D9DC5731AA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D5EAA0C-24F1-493F-BAED-3D9DC5731AA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D5EAA0C-24F1-493F-BAED-3D9DC5731AA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D5EAA0C-24F1-493F-BAED-3D9DC5731AA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28D604B2-BDBA-4EDE-A05C-6C7820A21BDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28D604B2-BDBA-4EDE-A05C-6C7820A21BDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28D604B2-BDBA-4EDE-A05C-6C7820A21BDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28D604B2-BDBA-4EDE-A05C-6C7820A21BDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B790AB2-B834-4B31-BA42-0359EB7175B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B790AB2-B834-4B31-BA42-0359EB7175B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B790AB2-B834-4B31-BA42-0359EB7175B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B790AB2-B834-4B31-BA42-0359EB7175B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96268ECC-C806-47A8-B62F-186177AB4AB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96268ECC-C806-47A8-B62F-186177AB4AB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96268ECC-C806-47A8-B62F-186177AB4AB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96268ECC-C806-47A8-B62F-186177AB4AB1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1D5EAA0C-24F1-493F-BAED-3D9DC5731AA4} = {31F3F9B9-3F49-4705-B8B2-AC8A5C8DE930}
+		{28D604B2-BDBA-4EDE-A05C-6C7820A21BDB} = {BF48A8BD-3DCA-4CAC-AC53-88BC2926BAD5}
+		{1B790AB2-B834-4B31-BA42-0359EB7175B5} = {6A1C53A8-7392-4585-A3FC-8E6028B1BAC8}
+		{96268ECC-C806-47A8-B62F-186177AB4AB1} = {69C01B1F-9DAA-4743-9D96-C7DAD2B788AA}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {486CDB43-13B1-47EE-B265-C0A0EAB3FE4A}
+	EndGlobalSection
+EndGlobal
