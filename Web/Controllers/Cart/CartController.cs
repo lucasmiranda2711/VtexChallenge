@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace Vtex.Challenge.Controllers
+namespace Vtex.Challenge.Controllers.Cart
 {
     [ApiController]
     [Route("[controller]")]
