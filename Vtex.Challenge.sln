@@ -15,7 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{6A
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vtex.Challenge.Application", "Vtex.Challenge.Application\Vtex.Challenge.Application.csproj", "{28D604B2-BDBA-4EDE-A05C-6C7820A21BDB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vtex.Challenge.Database", "Vtex.Challenge.Database[\Vtex.Challenge.Database.csproj", "{1B790AB2-B834-4B31-BA42-0359EB7175B5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vtex.Challenge.Database", "Vtex.Challenge.Database\Vtex.Challenge.Database.csproj", "{1B790AB2-B834-4B31-BA42-0359EB7175B5}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vtex.Challenge.Domain", "Vtex.Challenge.Domain\Vtex.Challenge.Domain.csproj", "{96268ECC-C806-47A8-B62F-186177AB4AB1}"
 EndProject

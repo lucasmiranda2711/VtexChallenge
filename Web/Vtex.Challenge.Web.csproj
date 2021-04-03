@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Vtex.Challenge.Database[\Vtex.Challenge.Database.csproj" />
+    <ProjectReference Include="..\Vtex.Challenge.Database\Vtex.Challenge.Database.csproj" />
   </ItemGroup>
 
 
