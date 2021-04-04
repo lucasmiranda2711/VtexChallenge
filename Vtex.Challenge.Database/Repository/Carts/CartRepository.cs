@@ -10,12 +10,12 @@ namespace Vtex.Challenge.Database.Repository.Carts
     {
         public static List<Cart> carts = new List<Cart>();
 
-        public Cart GetCartById(Guid id)
+        public Cart FindById(Guid id)
         {
             return carts.FirstOrDefault(cart => cart.Id == id);
         }
 
-        public Cart CreateCart(Cart cart)
+        public Cart Create(Cart cart)
         {
             cart.Id = Guid.NewGuid();
 
@@ -24,7 +24,7 @@ namespace Vtex.Challenge.Database.Repository.Carts
             return cart;
         }
 
-        public void UpdateCart(Cart cart)
+        public void Update(Cart cart)
         {
             carts[carts.FindIndex(c => c.Id == cart.Id)] = cart;
         }

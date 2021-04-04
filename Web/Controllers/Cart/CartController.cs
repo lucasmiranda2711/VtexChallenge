@@ -29,7 +29,7 @@ namespace Vtex.Challenge.Controllers.Cart
         /// Get an cart given an id.
         /// </summary>
         /// <param name="Id"></param>
-        /// <returns>A bearer token to access the API</returns>
+        /// <returns>A cart with all his information</returns>
         /// <response code="200">Returns the cart with all information</response>
         /// <response code="204">Returns no content when id not found</response>
         [HttpGet]
@@ -46,7 +46,7 @@ namespace Vtex.Challenge.Controllers.Cart
         /// <summary>
         /// Creates a new cart and returns his id.
         /// </summary>
-        /// <returns>A bearer token to access the API</returns>
+        /// <returns>An id of the created cart</returns>
         /// <response code="200">Returns when the cart is created correctly</response>
         /// <response code="400">Returns when an error occurs creating the cart</response>
         [HttpPost]
@@ -63,7 +63,6 @@ namespace Vtex.Challenge.Controllers.Cart
         /// <summary>
         /// Removes all cart items.
         /// </summary>
-        /// <returns>A bearer token to access the API</returns>
         /// <response code="200">Returns when the cart is cleaned correctly</response>
         /// <response code="400">Returns when an error occurs cleaning the cart</response>
         [HttpPut("/clean")]
@@ -78,14 +77,15 @@ namespace Vtex.Challenge.Controllers.Cart
         /// <summary>
         /// Add a discount cupom.
         /// </summary>
-        /// <returns>A bearer token to access the API</returns>
         /// <response code="200">Returns when the cart is cleaned correctly</response>
         /// <response code="400">Returns when an error occurs cleaning the cart</response>
         [HttpPut("/addCupom")]
         [Authorize]
-        public async Task<IActionResult> AddCupom([Required] Guid Id)
+        public async Task<IActionResult> AddCupom([Required] Guid CartId, [Required]  Guid CupomId)
         {
-            return null;
+            if (await CartService.AddCupom(CartId, CupomId)) return Ok();
+
+            return BadRequest("An error occured while trying to add your cupom.");
         }
     }
 }

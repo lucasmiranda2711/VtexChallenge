@@ -7,7 +7,7 @@ namespace Vtex.Challenge.Database.Repository.Auth
 {
     public class UserRepository : IUserRepository
     {
-        private List<User> users = new List<User>();
+        private IList<User> users = new List<User>();
 
         public UserRepository()
         {

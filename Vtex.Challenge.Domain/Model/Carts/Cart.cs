@@ -9,8 +9,8 @@ namespace Vtex.Challenge.Domain.Model.Carts
     {
         public Guid Id { get; set; }
         public User User { get; set; }
-        public List<CartItem> Items { get; set; } = new List<CartItem>();
-        public List<CartCupom> Cupoms { get; set; } = new List<CartCupom>();
+        public IList<CartItem> Items { get; set; } = new List<CartItem>();
+        public IList<CartCupom> Cupoms { get; set; } = new List<CartCupom>();
 
         public decimal GetTotalCartPrice()
         {

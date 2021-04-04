@@ -1,10 +1,11 @@
-﻿using Vtex.Challenge.Domain.Model.Cupoms;
+﻿using System;
+using Vtex.Challenge.Domain.Model.Cupoms;
 
 namespace Vtex.Challenge.Domain.Model.Carts
 {
     public class CartCupom
     {
-        public Cart Cart { get; set; }
+        public Guid CartId { get; set; }
         public Cupom Cupom { get; set; }
 
         public decimal GetTotalDiscount()

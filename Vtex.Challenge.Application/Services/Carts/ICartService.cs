@@ -11,5 +11,6 @@ namespace Vtex.Challenge.Application.Services.Carts
         Task<Guid> CreateCart(int userId);
 
         Task<bool> CleanCart(Guid id);
+        Task<bool> AddCupom(Guid CartId, Guid CupomId);
     }
 }

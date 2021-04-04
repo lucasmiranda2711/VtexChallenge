@@ -5,10 +5,10 @@ namespace Vtex.Challenge.Database.Repository.Carts.Interfaces
 {
     public interface ICartRepository
     {
-        Cart GetCartById(Guid id);
+        Cart FindById(Guid id);
 
-        Cart CreateCart(Cart cart);
+        Cart Create(Cart cart);
 
-        void UpdateCart(Cart cart);
+        void Update(Cart cart);
     }
 }

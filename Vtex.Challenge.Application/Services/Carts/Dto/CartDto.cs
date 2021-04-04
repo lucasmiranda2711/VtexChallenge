@@ -9,7 +9,7 @@ namespace Vtex.Challenge.Application.Services.Carts.Dto
     {
         public Guid Id { get; set; }
         public UserRequestDto User { get; set; }
-        public List<CartItemDto> items { get; set; } = new List<CartItemDto>();
+        public IList<CartItemDto> items { get; set; } = new List<CartItemDto>();
 
         public decimal GetTotalCartPrice()
         {
