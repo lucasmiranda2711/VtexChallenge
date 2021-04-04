@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Vtex.Challenge.Web.Dto
+namespace Vtex.Challenge.Application.Services.Users.Dto
 {
     public class UserDto
     {
