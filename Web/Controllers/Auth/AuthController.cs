@@ -12,7 +12,6 @@ namespace Vtex.Challenge.Web.Controllers.Auth
     [ApiController]
     public class AuthController : ControllerBase
     {
-        
         private ITokenService TokenService;
         private IUserService UserService;
 
@@ -33,7 +32,7 @@ namespace Vtex.Challenge.Web.Controllers.Auth
         [HttpPost]
         [Route("login")]
         [Produces("application/json")]
-        public async Task<IActionResult> Authenticate([FromBody] UserDto userDto)
+        public async Task<IActionResult> Authenticate([FromBody] UserRequestDto userDto)
         {
             var user = await UserService.GetUser(userDto.Username, userDto.Password);
 
@@ -42,11 +41,8 @@ namespace Vtex.Challenge.Web.Controllers.Auth
 
             var token = await TokenService.GenerateToken(user);
 
-            user.Password = "";
-
             return Ok(new
             {
-                user = user,
                 token = token
             });
         }

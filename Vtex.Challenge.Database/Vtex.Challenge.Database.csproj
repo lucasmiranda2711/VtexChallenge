@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <RootNamespace>Vtex.Challenge.Database_</RootNamespace>
+    <RootNamespace>Vtex.Challenge.Database</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

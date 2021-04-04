@@ -6,6 +6,8 @@ using Microsoft.Extensions.Hosting;
 using Vtex.Challenge.Application.Services.Carts;
 using Vtex.Challenge.Application.Services.Users;
 using Vtex.Challenge.Database.Repository.Auth;
+using Vtex.Challenge.Database.Repository.Carts;
+using Vtex.Challenge.Database.Repository.Carts.Interfaces;
 using Vtex.Challenge.Domain.Service.Auth;
 using Vtex.Challenge.Web.Authorization;
 using Vtex.Challenge.Web.Swagger;
@@ -33,6 +35,7 @@ namespace Vtex.Challenge
             services.AddSingleton<ITokenService, TokenService>();
             services.AddSingleton<IUserService, UserService>();
             services.AddSingleton<ICartService, CartService>();
+            services.AddSingleton<ICartRepository, CartRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

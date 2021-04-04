@@ -16,8 +16,6 @@ namespace Vtex.Challenge.Application.Services.Users
         public async Task<User> GetUser(string username, string password)
         {
             return await UserRepository.Get(username, password);
-
         }
-   
     }
 }
