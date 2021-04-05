@@ -1,14 +1,23 @@
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.IdentityModel.Tokens;
-using Microsoft.OpenApi.Models;
-using System.Text;
-using Vtex.Challenge.Database_.Repository.Auth;
+using Vtex.Challenge.Application.Services.Carts;
+using Vtex.Challenge.Application.Services.Cupoms;
+using Vtex.Challenge.Application.Services.Items;
+using Vtex.Challenge.Application.Services.Users;
+using Vtex.Challenge.Database.Repository.Auth;
+using Vtex.Challenge.Database.Repository.Carts;
+using Vtex.Challenge.Database.Repository.Carts.Interfaces;
+using Vtex.Challenge.Database.Repository.Cupoms;
+using Vtex.Challenge.Database.Repository.Cupoms.Interfaces;
+using Vtex.Challenge.Database.Repository.Items;
+using Vtex.Challenge.Database.Repository.Items.Interfaces;
 using Vtex.Challenge.Domain.Service.Auth;
+using Vtex.Challenge.Web.Authorization;
+using Vtex.Challenge.Web.Mappings;
+using Vtex.Challenge.Web.Swagger;
 
 namespace Vtex.Challenge
 {
@@ -24,57 +33,21 @@ namespace Vtex.Challenge
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Vtex API Challenge", Version = "v1.0" });
+            SwaggerConfiguration.AddSwagger(services);
+            AutomapperConfig.RegisterMapping(services);
 
-                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-                {
-                    Type = SecuritySchemeType.Http,
-                    BearerFormat = "JWT",
-                    In = ParameterLocation.Header,
-                    Scheme = "bearer",
-                    Description = "Please insert JWT token into field"
-                });
-
-                c.AddSecurityRequirement(new OpenApiSecurityRequirement {
-                     {
-                       new OpenApiSecurityScheme
-                       {
-                         Reference = new OpenApiReference
-                         {
-                           Type = ReferenceType.SecurityScheme,
-                           Id = "Bearer"
-                         }
-                        },
-                        new string[] { }
-                      }
-                    });
-            });
-
-            var key = Encoding.ASCII.GetBytes(Configuration.GetSection("Settings:Secret").Value);
-
-            services.AddAuthentication(x =>
-            {
-                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            })
-                .AddJwtBearer(x =>
-                {
-                    x.RequireHttpsMetadata = false;
-                    x.SaveToken = true;
-                    x.TokenValidationParameters = new TokenValidationParameters
-                    {
-                        ValidateIssuerSigningKey = true,
-                        IssuerSigningKey = new SymmetricSecurityKey(key),
-                        ValidateIssuer = false,
-                        ValidateAudience = false
-                    };
-                });
+            AuthorizationConfiguration.AddAuthorizationConfiguration(services, Configuration);
 
             services.AddControllers();
             services.AddSingleton<IUserRepository, UserRepository>();
             services.AddSingleton<ITokenService, TokenService>();
+            services.AddSingleton<IUserService, UserService>();
+            services.AddSingleton<ICartService, CartService>();
+            services.AddSingleton<ICartRepository, CartRepository>();
+            services.AddSingleton<ICupomService, CupomService>();
+            services.AddSingleton<ICupomRepository, CupomRepository>();
+            services.AddSingleton<IItemService, ItemService>();
+            services.AddSingleton<IItemRepository, ItemRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

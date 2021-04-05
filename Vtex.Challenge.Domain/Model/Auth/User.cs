@@ -1,4 +1,4 @@
-﻿namespace Vtex.Challenge.Domain.Model
+﻿namespace Vtex.Challenge.Domain.Model.Auth
 {
     public class User
     {

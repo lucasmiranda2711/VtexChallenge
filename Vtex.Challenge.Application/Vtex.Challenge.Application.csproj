@@ -4,4 +4,9 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Vtex.Challenge.Database\Vtex.Challenge.Database.csproj" />
+    <ProjectReference Include="..\Vtex.Challenge.Domain\Vtex.Challenge.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

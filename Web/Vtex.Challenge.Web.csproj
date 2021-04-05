@@ -2,13 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+	<GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Mappings\" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.13" />
     <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.1.1" />
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.1.1" />
@@ -16,7 +14,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Vtex.Challenge.Database[\Vtex.Challenge.Database.csproj" />
+    <ProjectReference Include="..\Vtex.Challenge.Application\Vtex.Challenge.Application.csproj" />
+    <ProjectReference Include="..\Vtex.Challenge.Database\Vtex.Challenge.Database.csproj" />
   </ItemGroup>
 
 
