@@ -14,7 +14,7 @@ namespace Vtex.Challenge.Web.Controllers.Cupoms
     [Route("[controller]")]
     public class CupomController : ControllerBase
     {
-        ICupomService CupomService;
+        private ICupomService CupomService;
 
         public CupomController(ICupomService cupomService)
         {
@@ -23,7 +23,7 @@ namespace Vtex.Challenge.Web.Controllers.Cupoms
 
 
         /// <summary>
-        /// Get an cupom given an id.
+        /// Get a cupom given an id.
         /// </summary>
         /// <param name="Id"></param>
         /// <returns>A cupom with all his information</returns>
@@ -45,7 +45,7 @@ namespace Vtex.Challenge.Web.Controllers.Cupoms
         /// </summary>
         /// <param name="Id"></param>
         /// <returns>A list of cupom ids</returns>
-        /// <response code="200">Returns the cupom with all information</response>
+        /// <response code="200">Returns a list of cupom ids</response>
         /// <response code="204">Returns no content when id not found</response>
         [HttpGet]
         [Authorize]

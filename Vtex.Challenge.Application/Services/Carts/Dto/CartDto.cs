@@ -8,12 +8,12 @@ namespace Vtex.Challenge.Application.Services.Carts.Dto
     public class CartDto
     {
         public Guid Id { get; set; }
-        public UserRequestDto User { get; set; }
-        public IList<CartItemDto> items { get; set; } = new List<CartItemDto>();
-
-        public decimal GetTotalCartPrice()
-        {
-            return items.Sum(item => item.GetTotalPrice());
-        }
+        public UserResponseDto User { get; set; }
+        public IList<CartItemDto> Items { get; set; } = new List<CartItemDto>();
+        public IList<CartCupomDto> Cupoms { get; set; } = new List<CartCupomDto>();
+        public decimal Price { get; set; }
+        public decimal Discounts { get; set; }
+        public decimal PriceWithDiscounts { get; set; }
+        
     }
 }

@@ -8,7 +8,7 @@ namespace Vtex.Challenge.Database.Repository.Carts
 {
     public class CartRepository : ICartRepository
     {
-        public static List<Cart> carts = new List<Cart>();
+        private static List<Cart> carts = new List<Cart>();
 
         public Cart FindById(Guid id)
         {

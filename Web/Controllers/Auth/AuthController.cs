@@ -30,7 +30,7 @@ namespace Vtex.Challenge.Web.Controllers.Auth
         /// <response code="400">Returns if login information has invalid values</response>
         /// <response code="401">Returns if the user/password is incorrect.</response>
         [HttpPost]
-        [Route("login")]
+        [Route("Login")]
         [Produces("application/json")]
         public async Task<IActionResult> Authenticate([FromBody] UserRequestDto userDto)
         {

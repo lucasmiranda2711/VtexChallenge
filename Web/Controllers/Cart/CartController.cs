@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -6,6 +7,8 @@ using System.ComponentModel.DataAnnotations;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Vtex.Challenge.Application.Services.Carts;
+using Vtex.Challenge.Application.Services.Carts.Dto;
+using Vtex.Challenge.Application.Services.Items;
 
 namespace Vtex.Challenge.Controllers.Cart
 {
@@ -16,17 +19,17 @@ namespace Vtex.Challenge.Controllers.Cart
     [Route("[controller]")]
     public class CartController : ControllerBase
     {
-        private readonly ILogger<CartController> _logger;
         private ICartService CartService;
+        private IMapper Mapper;
 
-        public CartController(ILogger<CartController> logger, ICartService cartService)
+        public CartController(ICartService cartService, IMapper mapper)
         {
-            _logger = logger;
             CartService = cartService;
+            Mapper = mapper;
         }
 
         /// <summary>
-        /// Get an cart given an id.
+        /// Get a cart given an id.
         /// </summary>
         /// <param name="Id"></param>
         /// <returns>A cart with all his information</returns>
@@ -36,7 +39,7 @@ namespace Vtex.Challenge.Controllers.Cart
         [Authorize]
         public async Task<IActionResult> Get([Required] Guid Id)
         {
-            var cart = await CartService.GetCart(Id);
+            var cart = Mapper.Map<CartDto>(await  CartService.GetCart(Id));
             if (cart == null)
                 return NoContent();
 
@@ -65,7 +68,7 @@ namespace Vtex.Challenge.Controllers.Cart
         /// </summary>
         /// <response code="200">Returns when the cart is cleaned correctly</response>
         /// <response code="400">Returns when an error occurs cleaning the cart</response>
-        [HttpPut("/clean")]
+        [HttpPut("/Clean")]
         [Authorize]
         public async Task<IActionResult> Clean([Required] Guid Id)
         {
@@ -79,13 +82,55 @@ namespace Vtex.Challenge.Controllers.Cart
         /// </summary>
         /// <response code="200">Returns when the cart is cleaned correctly</response>
         /// <response code="400">Returns when an error occurs cleaning the cart</response>
-        [HttpPut("/addCupom")]
+        [HttpPut("/AddCupom")]
         [Authorize]
         public async Task<IActionResult> AddCupom([Required] Guid CartId, [Required]  Guid CupomId)
         {
             if (await CartService.AddCupom(CartId, CupomId)) return Ok();
 
             return BadRequest("An error occured while trying to add your cupom.");
+        }
+
+        /// <summary>
+        /// Add an item.
+        /// </summary>
+        /// <response code="200">Returns when the item is added correctly</response>
+        /// <response code="400">Returns when an error occurs adding the item</response>
+        [HttpPut("/AddItem")]
+        [Authorize]
+        public async Task<IActionResult> AddItem(ItemRequestDto itemRequestDto)
+        {
+            if (await CartService.AddItem(itemRequestDto)) return Ok();
+
+            return BadRequest("An error occured while trying to add your item.");
+        }
+
+        /// <summary>
+        /// Remove an item from cart.
+        /// </summary>
+        /// <response code="200">Returns when the item is removed correctly</response>
+        /// <response code="400">Returns when an error occurs removing the item</response>
+        [HttpPut("/RemoveItem")]
+        [Authorize]
+        public async Task<IActionResult> RemoveItem(Guid cartId, Guid itemId)
+        {
+            if (await CartService.RemoveItem(cartId, itemId)) return Ok();
+
+            return BadRequest("An error occured while trying to remove your item.");
+        }
+
+        /// <summary>
+        /// Update an item from cart.
+        /// </summary>
+        /// <response code="200">Returns when the cart item is updated correctly</response>
+        /// <response code="400">Returns when an error occurs updating the cart</response>
+        [HttpPut("/UpdateItem")]
+        [Authorize]
+        public async Task<IActionResult> UpdateItem(ItemRequestDto itemRequestDto)
+        {
+            if (await CartService.UpdateItem(itemRequestDto)) return Ok();
+
+            return BadRequest("An error occured while trying to update your item.");
         }
     }
 }

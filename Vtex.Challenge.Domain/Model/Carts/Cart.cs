@@ -14,6 +14,11 @@ namespace Vtex.Challenge.Domain.Model.Carts
 
         public decimal GetTotalCartPrice()
         {
+            return Items.Sum(item => item.GetTotalPrice());
+        }
+
+        public decimal GetTotalCartPriceWithDiscounts()
+        {
             return Items.Sum(item => item.GetTotalPrice()) - GetTotalDiscount();
         }
 
